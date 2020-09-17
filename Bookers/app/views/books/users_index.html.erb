@@ -1,0 +1,30 @@
+<main>
+    <h2>Users</h2>
+    <div class="box">
+      <table class="table-box">
+        <tr class="title-box">
+          <th>image</th>
+          <th>name</th>
+          <th></th>
+        </tr>
+        <% @users.each do |book| %>
+          <tr class="contents">
+            <td>
+              <%= link_to book_path(book) do %>
+                <%= attachment_image_tag @book.user, :profile_image %>
+              <% end %>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td class="link">
+              <%= link_to book_path(book) do %>
+                <i class="bt"></i><%= book.title %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <%= render 'books/list', book: @book %>
+</main>

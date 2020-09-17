@@ -1,0 +1,43 @@
+<!--サイドバー-->
+<div class="userinfo">
+  <section class="popular">
+    <h2 class="sidebar-heading">User info</h2>
+    <div class="sidebar-contents">
+      <table class="table-box">
+        <td class="">
+          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+        </td>
+        <tr class="title-box">
+          <td>name</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr class="contents">
+          <td>introduction</td>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="newbook">
+    <h2 class="sidebar-heading">New book</h2>
+    <div class="sidebar-contents">
+      <%= form_with model:book, local:true do |f| %>
+        <% if @user.books.errors.any? %>
+          <%= book.errors.count %>errors prohibited this obj from being saved:
+          <% book.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+        <div class="submit-button">
+          <%= f.submit "Create Book" %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

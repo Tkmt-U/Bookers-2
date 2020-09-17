@@ -1,31 +1,44 @@
-
 <main>
-  <h2>Books</h2>
-  <div class="box">
-    <table class="table-box">
-      <tr class="title-box">
-        <th>Title</th>
-        <th>Opinion</th>
-        <th></th>
-      </tr>
-      <% @books.each do |book| %>
-        <tr class="contents">
-          <td>
-            <%= link_to book_path(book) do %>
-              <%= attachment_image_tag @book.user, :profile_image %>
-            <% end %>
-          </td>
-          <td class="link">
-            <%= link_to book_path(book) do %>
-              <i class="bt"></i><%= book.title %>
-            <% end %>
-          </td>
-          <td>
-            <%= book.body %>
-          </td>
+  <% if user_signed_in? %>
+    <h2>Books</h2>
+    <div class="box">
+      <table class="table-box">
+        <tr class="title-box">
+          <th>Title</th>
+          <th>Opinion</th>
+          <th></th>
         </tr>
-      <% end %>
-    </table>
-  </div>
-  <%= render 'books/list', book: @book %>
+        <% @books.each do |book| %>
+          <tr class="contents">
+            <td>
+              <%= link_to book_path(book) do %>
+                <%= attachment_image_tag @book.user, :profile_image %>
+              <% end %>
+            </td>
+            <td class="link">
+              <%= link_to book_path(book) do %>
+                <i class="bt"></i><%= book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= book.body %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <%= render 'books/list', book: @book %>
+  <% else %>
+    <h1>Welcome to <span class='glyphicon glyphicon-book'></span><strong>Bookers</strong>!</h1>
+    <p>In Bookers,</p>
+    <p>you can share and exchange your opinions , inpressions , and emotions<br>about various books!</p>
+    <div class="">
+      <div class="">
+        <%= link_to "login", new_user_session_path %>
+      </div>
+      <div class="">
+        <%= link_to "sign up", new_user_registration_path %>
+      </div>
+    </div>
+  <% end %>
 </main>

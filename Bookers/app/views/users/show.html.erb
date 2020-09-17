@@ -7,7 +7,7 @@
         <th>Title</th>
         <th>Opinion</th>
       </tr>
-      <% @users.each do |book| %>
+      <% @books.each do |book| %>
         <tr class="contents">
           <td>
             <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
@@ -18,14 +18,9 @@
           <td>
             <%= book.body %>
           </td>
-          <td>
-            <%= if @book.user == current_user %>
-              <p><%= link_to "Destroy", book_path(@book), method: :delete %></p>
-            <% end %>
-          </td>
         </tr>
       <% end %>
     </table>
   </div>
-
-  </main>
+  <%= render 'users/list', book: @book %>
+</main>
