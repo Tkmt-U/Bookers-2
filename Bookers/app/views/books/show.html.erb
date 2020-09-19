@@ -9,14 +9,24 @@
       </tr>
       <tr class="contents">
         <td>
-          <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
-          <%= @user.name %>
+          <%= link_to user_path do %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %><br>
+            <%= @user.name %>
+          <% end %>
         </td>
         <td class="link">
           <%= link_to "#{@book.title}", book_path(@book.id) %>
         <td>
           <%= @book.body %>
         </td>
+        <% if @book.user == current_user %>
+          <td>
+            <%= link_to "Edit", edit_book_path(@book), method: :get %>
+          </td>
+          <td>
+            <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          </td>
+        <% end %>
       </tr>
     </table>
   </div>
