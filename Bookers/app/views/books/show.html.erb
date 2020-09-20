@@ -1,11 +1,14 @@
 <main>
-  <h2>Book detail</h2>
-  <div class="box">
-    <table class="table-box">
+  <%= render 'books/list', book: @book, user: @user %>
+  <div class="col-lg-9">
+    <h2>Book detail</h2>
+    <table class="table table-striped">
       <tr class="title-box">
         <th></th>
         <th>Title</th>
         <th>Opinion</th>
+        <th></th>
+        <th></th>
       </tr>
       <tr class="contents">
         <td>
@@ -30,6 +33,4 @@
       </tr>
     </table>
   </div>
-  <%= render 'books/list', book: @book, user: @user %>
-
 </main>
