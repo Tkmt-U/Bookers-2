@@ -10,15 +10,13 @@
       <% @users.each do |book| %>
         <tr class="contents">
           <td>
-            <%= link_to book_path(book) do %>
-              <%= attachment_image_tag @book.user, :profile_image %>
-            <% end %>
+            <%= attachment_image_tag book, :profile_image, :fill, 50, 50, format: 'jpeg' %>
           </td>
           <td>
             <%= book.name %>
           </td>
           <td class="link">
-            <%= link_to book_path(book) do %>
+            <%= link_to user_path(@user.id) do %>
               <i class="bt"></i><%= "Show" %>
             <% end %>
           </td>

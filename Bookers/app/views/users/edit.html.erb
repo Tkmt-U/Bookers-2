@@ -10,7 +10,7 @@
           <%= f.text_field :name, autofocus: true %>
           <div class="form-group has-icon">
             <div class="user-edit-image">
-              <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg' %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
             </div>
             <label>Image</label>
             <%= f.attachment_field :profile_image %>

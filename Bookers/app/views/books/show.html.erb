@@ -9,7 +9,7 @@
       </tr>
       <tr class="contents">
         <td>
-          <%= link_to user_path do %>
+          <%= link_to user_path(@user) do %>
             <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %><br>
             <%= @user.name %>
           <% end %>
@@ -24,11 +24,12 @@
             <%= link_to "Edit", edit_book_path(@book), method: :get %>
           </td>
           <td>
-            <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
           </td>
         <% end %>
       </tr>
     </table>
   </div>
-  <%= render 'books/list', book: @book %>
+  <%= render 'books/list', book: @book, user: @user %>
+
 </main>

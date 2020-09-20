@@ -24,17 +24,24 @@ class BooksController < ApplicationController
     @book = Book.new
     @users = User.all
     @user = current_user
-    # @user = User.find(params[:id])
   end
 
   def show
     @book = Book.find(params[:id])
     @user = @book.user
-    # @books = @user.books
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
 
+  def update
+    book = Book.find(params[:id])
+    if book.update(book_params)
+      redirect_to book_path
+    else
+      render :edit
+    end
   end
 
   def destroy
