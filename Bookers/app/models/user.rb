@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-
+  validates :name, presence: true, length: { in: 2..20 }
+  # if user_signed_in?
+  #   validates :introduction, length: { in: 1..50 }
+  # end
 
   has_many :books, dependent: :destroy
   attachment :profile_image

@@ -1,15 +1,16 @@
-<section class="slice slice-lg sct-color-1">
+
+<section class="">
   <div class="container">
-    <div class="form-header text-center">
-      <h2 class="form-header-title">User info</h2>
+    <div class="">
+      <h2 class="">User info</h2>
     </div>
-    <div class="form-body">
+    <div class="">
       <%= form_with model:@user, local:true do |f| %>
         <div class="form-group has-icon">
           <label>Name</label>
           <%= f.text_field :name, autofocus: true %>
           <div class="form-group has-icon">
-            <div class="user-edit-image">
+            <div class="">
               <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
             </div>
             <label>Image</label>

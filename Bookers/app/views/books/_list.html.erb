@@ -1,34 +1,35 @@
 <!--サイドバー-->
 <div class="col-lg-3">
-  <div class="userinfo">
-    <section class="popular">
-      <h2 class="sidebar-heading">User info</h2>
-      <div class="sidebar-contents">
-        <table class="table-box">
+  <div class="">
+    <section class="">
+      <h2 class="">User info</h2>
+      <div class="">
+        <table class="">
           <td class="">
             <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
           </td>
-          <tr class="title-box">
+          <tr class="">
             <td>name</td>
             <td><%= user.name %></td>
           </tr>
-          <tr class="contents">
+          <tr class="">
             <td>introduction</td>
             <td><%= user.introduction %></td>
           </tr>
           <tr>
             <td>
-              <%= link_to "edit", edit_user_path(user.id) %>
-              <i class=""></i>
+              <%= link_to edit_user_path(user.id)  do %>
+                <button type="button" class="btn btn-light">edit</i></button>
+              <% end %>
             </td>
           </tr>
         </table>
       </div>
     </section>
 
-    <section class="newbook">
-      <h2 class="sidebar-heading">New book</h2>
-      <div class="sidebar-contents">
+    <section class="">
+      <h2 class="">New book</h2>
+      <div class="">
         <%= form_with model:@book, local:true do |f| %>
           <% if book.errors.any? %>
             <%= book.errors.count %>errors prohibited this obj from being saved:
@@ -41,7 +42,7 @@
           <%= f.text_field :title %>
           <h4>Opinion</h4>
           <%= f.text_area :body %>
-          <div class="submit-button">
+          <div class="">
             <%= f.submit "Create Book" %>
           </div>
         <% end %>

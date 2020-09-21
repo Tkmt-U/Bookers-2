@@ -12,13 +12,14 @@
   <!-- ヘッダー -->
   <div class='container'>
     <div class='row'>
-      <header>
-        <h3 class="heading">
+      <div class="">
+      <header class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-3 mb-3">
+        <h3 class="">
           Bookers
         </h3>
-        <div id="headermenu">
-
-          <ul class="nav navbar-nav navbar-right" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+        <div class="">
+          <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li class="">
                 <%= link_to "Home", user_path(current_user.id) %>
@@ -48,7 +49,9 @@
             <% end %>
           </ul>
         </div>
+        </nav>
       </header>
+      </div>
 
       <body>
         <%= yield %>
@@ -56,7 +59,7 @@
 
       <!-- フッター -->
       <footer>
-        <p class='col-xs-3 col-xs-offset-9'>
+        <p class='col-lg-3 col-lg-offset-9'>
     	    CopyRight Infratop.inc
         </p>
       </footer>
