@@ -17,7 +17,7 @@
             <%= book.name %>
           </td>
           <td class="link">
-            <%= link_to user_path(@user.id) do %>
+            <%= link_to user_path(book.id) do %>
               <i class="bt"></i><%= "Show" %>
             <% end %>
           </td>

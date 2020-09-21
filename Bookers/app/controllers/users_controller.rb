@@ -7,12 +7,18 @@ class UsersController < ApplicationController
   end
 
   def show
+    @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
   end
 
   def edit
     @user = User.find(params[:id])
+    unless @user == current_user
+      @book = Book.new
+      @books = @user.books
+      render "show"
+    end
   end
 
   def update

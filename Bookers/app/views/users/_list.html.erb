@@ -18,8 +18,14 @@
           </tr>
           <tr>
             <td>
-              <%= link_to edit_user_path(user.id)  do %>
-                <button type="button" class="btn btn-light">edit</i></button>
+              <% if @user == current_user %>
+                <%= link_to edit_user_path(user.id)  do %>
+                  <button type="button" class="btn btn-light">edit</i></button>
+                <% end %>
+              <% else %>
+                <%= link_to user_path(current_user.id)  do %>
+                  <button type="button" class="btn btn-light">edit</i></button>
+                <% end %>
               <% end %>
             </td>
           </tr>
@@ -32,8 +38,8 @@
       <div class="">
         <%= form_with model:@book, local:true do |f| %>
           <% if user.errors.any? %>
-            <%= @book.errors.count %>errors prohibited this obj from being saved:
-            <% @book.errors.full_messages.each do |message| %>
+            <%= book.errors.count %>errors prohibited this obj from being saved:
+            <% book.errors.full_messages.each do |message| %>
               <%= message %>
             <% end %>
           <% end %>
