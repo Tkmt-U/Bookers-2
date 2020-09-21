@@ -1,23 +1,23 @@
 <main>
   <%= render 'books/list', book: @book, user: @user %>
-  <div class="col-lg-9">
+  <div class="col-xs-9">
     <h2>Book detail</h2>
     <table class="table table-striped">
-      <tr class="title-box">
+      <tr class="">
         <th></th>
         <th>Title</th>
         <th>Opinion</th>
         <th></th>
         <th></th>
       </tr>
-      <tr class="contents">
+      <tr class="">
         <td>
           <%= link_to user_path(@user) do %>
             <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %><br>
             <%= @user.name %>
           <% end %>
         </td>
-        <td class="link">
+        <td class="">
           <%= link_to "#{@book.title}", book_path(@book.id) %>
         <td>
           <%= @book.body %>
