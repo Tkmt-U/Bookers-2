@@ -1,60 +1,57 @@
 <!--サイドバー-->
 <div class="col-xs-3">
-  <div class="">
-    <section class="">
-      <h2 class="">User info</h2>
-      <div class="">
-        <table class="">
-          <td class="">
-            <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-          </td>
-          <tr class="">
-            <td>name</td>
-            <td><%= user.name %></td>
-          </tr>
-          <tr class="">
-            <td>introduction</td>
-            <td><%= user.introduction %></td>
-          </tr>
-          <tr>
-            <td>
-              <% if @user == current_user %>
-                <%= link_to edit_user_path(user.id)  do %>
-                  <button type="button" class="btn btn-light">edit</i></button>
-                <% end %>
-              <% else %>
-                <%= link_to user_path(current_user.id)  do %>
-                  <button type="button" class="btn btn-light">edit</i></button>
-                <% end %>
+  <section class="">
+    <h2 class="">User info</h2>
+    <div class="">
+      <table class="">
+        <td class="">
+          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        </td>
+        <tr class="">
+          <td>name</td>
+          <td><%= user.name %></td>
+        </tr>
+        <tr class="">
+          <td>introduction</td>
+          <td><%= user.introduction %></td>
+        </tr>
+        <tr class="">
+          <td>
+            <% if @user == current_user %>
+              <%= link_to edit_user_path(user.id)  do %>
+                <button type="button" class="btn btn-light"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
               <% end %>
-            </td>
-          </tr>
-        </table>
-      </div>
+            <% else %>
+              <%= link_to user_path(current_user.id)  do %>
+                <button type="button" class="btn btn-light"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     </section>
 
     <section class="">
-      <h2 class="">New book</h2>
-      <div class="">
-        <%= form_with model:book, local:true do |f| %>
-          <% if book.errors.any? %>
-            <p><%= book.errors.count %>errors prohibited this obj from being saved:</p>
-            <ul>
-            <% book.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+    <h2 class="">New book</h2>
+    <div class="">
+      <%= form_with model:book, local:true do |f| %>
+        <% if book.errors.any? %>
+          <p><%= book.errors.count %>errors prohibited this obj from being saved:</p>
+          <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
-
-          <h4>Title</h4>
-          <%= f.text_field :title %>
-          <h4>Opinion</h4>
-          <%= f.text_area :body %>
-          <div class="">
-            <%= f.submit "Create Book" %>
-          </div>
+          </ul>
         <% end %>
-      </div>
-    </section>
-  </div>
+
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+        <div>
+          <%= f.submit "Create Book" %>
+        </div>
+      <% end %>
+    </div>
+  </section>
 </div>

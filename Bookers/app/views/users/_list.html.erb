@@ -20,11 +20,11 @@
             <td>
               <% if @user == current_user %>
                 <%= link_to edit_user_path(user.id)  do %>
-                  <button type="button" class="btn btn-light">edit</i></button>
+                  <button type="button" class="btn btn-light"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
                 <% end %>
               <% else %>
                 <%= link_to user_path(current_user.id)  do %>
-                  <button type="button" class="btn btn-light">edit</i></button>
+                  <button type="button" class="btn btn-light"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
                 <% end %>
               <% end %>
             </td>
