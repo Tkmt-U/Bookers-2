@@ -5,14 +5,10 @@
     <p>you can share and exchange your opinions , inpressions , and emotions<br>about various books!</p>
     <div class="">
       <div class="row">
-        <%= link_to new_user_session_path do %>
-          <p class="btn btn-info col-xs-7 col-xs-offset-0">Log in</p>
-        <% end %>
+        <%= link_to "Log in", new_user_session_path %>
       </div>
       <div class="row">
-        <%= link_to new_user_registration_path do %>
-          <p class="btn btn-success col-xs-7 col-xs-offset-0">Sign up</p>
-        <% end %>
+        <%= link_to "Sign up", new_user_registration_path %>
       </div>
     </div>
   </div>
