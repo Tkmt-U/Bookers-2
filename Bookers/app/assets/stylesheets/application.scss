@@ -16,3 +16,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body { padding-top: 70px; }
+@import "font-awesome";
+
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#back img {
+  width: 50px;
+}

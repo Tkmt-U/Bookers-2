@@ -1,0 +1,16 @@
+<% if book.favorited?(current_user) %>
+  <%= link_to book_favorites_path(book), method: :delete, remote: true do %>
+    <i class="glyphicon glyphicon-star" style="color: yellow;"></i>
+    <!--<button id="btn">-->
+    <!--  <i class="glyphicon glyphicon-star" style="color: yellow;"></i>-->
+    <!--</button>-->
+  <% end %>
+<% else %>
+  <%= link_to book_favorites_path(book), method: :post, remote: true do %>
+    <i class="glyphicon glyphicon-star"></i>
+    <!--<button id="btn">-->
+    <!--  <i class="glyphicon glyphicon-star"></i>-->
+    <!--</button>-->
+  <% end %>
+<% end %>
+<%= book.favorites.count %>いいね
